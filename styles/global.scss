@@ -1,0 +1,233 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Start:: Import Fonts
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+// End:: Import Fonts
+
+:root {
+	--primary-color: 251 85 49; // only rgb values, common color [i.e. buttons,links,activetab etc.]
+	--secondary-color: #8b7813; // subtitle color
+	--color-dark: #010101; // title color
+	--color-light: #414342; // fonts color
+	--font-family: 'Rubik'; // fonts family
+}
+
+// Start:: Theme Customization
+$fontFamily: --font-family;
+$theme1primarycolor: 244 67 54;
+$theme2primarycolor: 63 81 181;
+$theme3primarycolor: 76 175 80;
+$theme4primarycolor: 103 58 183;
+
+body.theme-1 {
+	--primary-color:#{$theme1primarycolor};
+}
+body.theme-2 {
+	--primary-color:#{$theme2primarycolor};
+}
+body.theme-3 {
+	--primary-color:#{$theme3primarycolor};
+}
+body.theme-4 {
+	--primary-color:#{$theme4primarycolor};
+}
+// End:: Theme Customization
+
+// Start:: Common Styling
+@layer base {
+	button {
+		background-color: initial;
+	}
+}
+
+@layer base {
+	button {
+		background-color: initial;
+	}
+}
+
+body {
+	//@apply font-Nunito text-base text-light;
+	@apply font-textFont text-base text-light;
+}
+h1,h2,h3,h4,h5 {
+	@apply text-dark font-semibold font-titleFont leading-tight tracking-wide;
+}
+h1 {
+	@apply text-3xl lg:text-5xl;
+}
+h2 {
+	@apply text-3xl lg:text-4xl;
+}
+h3 {
+	@apply text-2xl lg:text-3xl;
+}
+h4 {
+	@apply text-lg lg:text-2xl;
+}
+h5 {
+	@apply text-base lg:text-xl;
+}
+h6 {
+	@apply text-base tracking-subTitle text-secoundary uppercase font-textFont font-semibold mb-4;
+}
+b, strong {
+	font-weight: 600;
+}
+a {
+	&.link {
+		&:hover {
+			@apply after:left-0 after:right-auto after:w-full;
+		}
+	}
+}
+.container {
+	@apply max-w-full lg:max-w-screen-lg xl:max-w-screen-xl 2xl:max-w-screen-2xl;
+	&.container-scroll {
+		@apply pr-0 lg:pr-4;
+	}
+}
+// End:: Common Styling
+
+// Start:: Buttons Styling
+.btn {
+	@apply relative inline-block font-normal px-6 py-2 rounded-full transition-all border border-primary border-solid cursor-pointer;
+	&.icon-left {
+		@apply pl-12;
+		i {
+			@apply left-2;
+		}
+		&.btn-sm {
+			@apply pl-10;
+			i {
+				@apply left-1;
+			}
+		}
+	}
+	&.icon-right {
+		@apply pr-12;
+		i {
+			@apply right-2;
+		}
+		&.btn-sm {
+			@apply pr-10;
+			i {
+				@apply right-1;
+			}
+		}	
+	}
+	i {
+		@apply absolute inline-block top-1/2 -translate-y-1/2 p-1.5 rounded-full transition-all;
+	}
+	&.btn-sm {
+		@apply text-sm py-1.5 px-4;
+	}
+}
+.btn-primary {
+	@apply bg-primary-light text-primary hover:bg-primary hover:text-white;
+	i {
+		@apply bg-primary text-white;
+	}
+	&:hover {
+		i {
+			@apply bg-transparentLight-200;
+		}
+	}
+}
+.btn-secoundary {
+	@apply bg-white text-primary;
+	i {
+		@apply bg-primary text-white;
+	}
+}
+.btn-filled {
+	@apply bg-primary text-white;
+	i {
+		@apply bg-transparentLight-200;
+	}
+	&:hover {
+		@apply md:opacity-90;
+	}
+}
+// End:: Buttons Styling
+
+
+// Start:: Mantine Carousel
+.mantine-Carousel-control {
+	@apply bg-primary;
+}
+.mantine-Carousel-indicators {
+	button {
+		@apply bg-gray-400;
+		&[data-active="true"] {
+			@apply bg-primary;
+		}
+	}
+}
+// End:: Mantine Carousel
+.top-projects {
+	> .mantine-Carousel-controls {
+		width: 107%;
+		transform: translateX(-3.3%);
+		@apply hidden lg:flex;
+	}
+} 
+.project-card {
+	@apply overflow-hidden;
+	@media screen and (min-width: 1199px) {
+		.mantine-Carousel-controls {
+			width: 150%;
+			left: -25%;
+			transition: .4s;
+		}
+		&:hover {
+			.mantine-Carousel-controls {
+				width: 100%;
+				left: 0;
+			}
+		}	
+	}
+}
+footer {
+	.mantine-Carousel-controls {
+		padding: 0;
+	}
+	.mantine-Carousel-viewport {
+		@apply px-8 lg:px-12 pb-8;
+	}
+}
+
+// Start:: Swiper Slider
+.swiper-slide span {
+	display: block !important;
+}
+.swiper-slide-thumb-active {
+	img {
+		border: 2px solid !important;
+		@apply rounded-md;
+	}
+}
+.property-item {
+	.swiper-button-prev:after,
+	.swiper-button-next:after {
+		@apply text-xl;
+	}
+}
+// End:: Swiper Slider
+.pagespace{
+	margin-top: 10%;
+}
+.text-common-para
+{
+	font-size: 15px;
+}
+.image_properties
+{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

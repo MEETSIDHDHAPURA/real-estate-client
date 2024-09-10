@@ -1,6 +1,6 @@
 "use client";
+import styles from "../../styles/auth.module.scss";
 import { TextField, IconButton, Button, Typography, Box } from "@mui/material";
-import { useForm } from "@mantine/form";
 import { MdOutlineMapsHomeWork } from "react-icons/md";
 import { FcGoogle } from "react-icons/fc";
 import { AiOutlineMail, AiOutlineHeart } from "react-icons/ai";
@@ -8,22 +8,8 @@ import { IoBedOutline } from "react-icons/io5";
 import { MdOutlineShower } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
-import styles from "../../../styles/auth.module.scss";
 
 const LoginComponent = () => {
-  const form = useForm({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-
-    validate: {
-      email: (value) =>
-        value !== "" && /^\S+@\S+$/.test(value) ? null : "Invalid email",
-      password: (value) => (value !== "" ? null : "Password is Required"),
-    },
-  });
-
   return (
     <Box sx={{ height: "100vh", display: "flex" }}>
       <Box
@@ -83,7 +69,7 @@ const LoginComponent = () => {
               </Typography>
               <Box
                 component="form"
-                onSubmit={form.onSubmit((values) => console.log(values))}
+                onSubmit={() => {}} // todo: handle submit
                 sx={{ marginTop: "2rem", width: "100%" }}
               >
                 <Box sx={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -92,7 +78,7 @@ const LoginComponent = () => {
                     variant="outlined"
                     size="small"
                     fullWidth
-                    {...form.getInputProps("email")}
+                    // {...form.getInputProps("email")}
                     InputProps={{
                       endAdornment: (
                         <IconButton>
@@ -107,7 +93,7 @@ const LoginComponent = () => {
                     size="small"
                     fullWidth
                     type="password"
-                    {...form.getInputProps("password")}
+                    // {...form.getInputProps("password")}
                   />
                 </Box>
                 <Typography
@@ -160,7 +146,7 @@ const LoginComponent = () => {
                     variant="body2"
                     sx={{ textAlign: "center", mt: 1 }}
                   >
-                    Don't have an account?{" "}
+                    {`Don't have an account? `}
                     <Link href="/authentication/signup">
                       <span
                         style={{ fontWeight: "bold", cursor: "pointer", ml: 1 }}

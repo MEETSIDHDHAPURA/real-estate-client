@@ -1,3 +1,10 @@
+import Header from "@/components/homeComponent/headerComponent/header";
+import { Box } from "@mui/material";
+
 export default function Home() {
-  return <div>Hello world</div>;
+  return (
+    <Box>
+      <Header />
+    </Box>
+  );
 }

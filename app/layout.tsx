@@ -1,6 +1,5 @@
 // app/layout.js
-import "../styles/global.scss";
-import { MantineProvider } from "@mantine/core";
+import "../global.css";
 import Script from "next/script";
 import React from "react";
 
@@ -53,19 +52,8 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MantineProvider
-          theme={{
-            fontFamily: "var(--font-family)",
-            colors: {
-              brand: Array(12).fill("rgb(var(--primary-color))"),
-            },
-            primaryColor: "brand",
-            black: "var(--color-light)",
-          }}
-        >
-          {/* Your page content */}
-          {children}
-        </MantineProvider>
+        {/* Your page content */}
+        {children}
       </body>
     </html>
   );
